@@ -5,7 +5,7 @@ export const getData = createAsyncThunk(
     "main/getData",
     async (slug, { rejectWithValue }) => {
         try {
-            const { data } = await axiosInstance.get(`tables/${slug}/`);
+            const { data } = await axiosInstance.get(`api/tables/${slug}/`);
             if(typeof data === 'string') {
                 let jsonString = data?.replace(/NaN/g, "null");
                 return JSON.parse(jsonString);
